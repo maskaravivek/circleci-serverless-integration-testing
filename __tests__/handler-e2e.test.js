@@ -1,14 +1,11 @@
-const { uploadFile, head } = require('../s3helper');
-const { putItemInDDB, getItem } = require('../ddbHelper');
-var fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const axios = require('axios').default;
 
-describe('uploadFile test', () => {
+describe('API test', () => {
   beforeEach(() => {
   });
 
-  test('test uploadFile', async () => {
+  test('test upload CSV API', async () => {
     const apiUrl = `https://${process.env.httpApiGatewayEndpointId}.execute-api.${process.env.region}.amazonaws.com/uploadCsv`
 
     const jobId = uuidv4();

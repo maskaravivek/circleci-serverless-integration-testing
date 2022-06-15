@@ -2,11 +2,9 @@
   "scripts": {
     "dotenv": "sls export-env",
     "coverage": "jest --coverage  --config config/jest-unit.config.js",
-    "test": "jest --config config/jest-unit.config.js",
+    "unit": "jest --config config/jest-unit.config.js",
     "integration": "npm run dotenv && jest --config config/jest-int.config.js",
-    "int": "jest --config config/jest-int.config.js",
-    "e2e": "jest --config config/jest-e2e.config.js",
-    "all": "npm run test && npm run integration && npm run e2e"
+    "e2e": "npm run dotenv && jest --config config/jest-e2e.config.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
