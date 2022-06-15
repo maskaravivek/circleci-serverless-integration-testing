@@ -27,7 +27,7 @@ describe('uploadCsvToS3Handler', () => {
 
   test('test uploadFile', async () => {
     const response = await handler.uploadCsvToS3Handler({
-      jobId: 'test-job-id',
+      body: JSON.stringify({ jobId: 'test-job-id' }),
     });
 
     let body = JSON.parse(response.body);

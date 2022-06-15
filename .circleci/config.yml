@@ -39,13 +39,20 @@ jobs:
             npm install
  
       - run:
-          name: Run tests with code coverage
+          name: Run unit tests with code coverage
           command: npm run coverage
  
       - run:
           name: Deploy application
           command: sls deploy
+      
+      - run:
+          name: Run integration tests
+          command: npm run integration
   
+      - run:
+          name: Run E2E tests
+          command: npm run e2e
 
 
 workflows:

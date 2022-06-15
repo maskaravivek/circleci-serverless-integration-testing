@@ -1,15 +1,23 @@
 {
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "dotenv": "sls export-env",
+    "coverage": "jest --coverage  --config config/jest-unit.config.js",
+    "test": "jest --config config/jest-unit.config.js",
+    "integration": "npm run dotenv && jest --config config/jest-int.config.js",
+    "int": "jest --config config/jest-int.config.js",
+    "e2e": "jest --config config/jest-e2e.config.js",
+    "all": "npm run test && npm run integration && npm run e2e"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "csv-stringify": "^6.0.5",
     "fs": "0.0.1-security",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "aws-sdk-mock": "^5.7.0",
-    "jest": "^28.1.0"
+    "jest": "^28.1.0",
+    "dotenv": "^10.0.0",
+    "serverless-export-env": "1.4.4"
   }
 }
