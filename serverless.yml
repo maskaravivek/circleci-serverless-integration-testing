@@ -62,20 +62,20 @@ provider:
 
 functions:
   CreateJob:
-    handler: handlers.createJobHandler.createJob
+    handler: handlers/createJobHandler.createJob
     events:
       - httpApi:
           method: POST
-          path: job/
+          path: /job
     environment:
       TABLE_NAME: circle-ci-unit-testing-table
       BUCKET_NAME: circle-ci-unit-testing-bucket
   GetJob:
-    handler: handlers.getJobHandler.getJob
+    handler: handlers/getJobHandler.getJob
     events:
       - httpApi:
           method: GET
-          path: job/{jobId}
+          path: /job/{jobId}
     environment:
       TABLE_NAME: circle-ci-unit-testing-table
 

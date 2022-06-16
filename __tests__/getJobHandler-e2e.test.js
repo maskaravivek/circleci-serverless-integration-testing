@@ -9,7 +9,7 @@ describe('GET Job API test', () => {
     const baseApiUrl = `https://${process.env.httpApiGatewayEndpointId}.execute-api.${process.env.region}.amazonaws.com/job`
 
     const jobId = uuidv4();
-    const resp = await axios.post(apiUrl, {
+    const resp = await axios.post(baseApiUrl, {
       jobId: jobId
     });
 

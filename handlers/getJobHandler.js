@@ -6,8 +6,8 @@ AWS.config.update({ region: 'us-west-2' });
 
 module.exports.getJob = async (event) => {
   try {
-    const jobId = JSON.parse(event.body)['jobId']
-    const job = getItem(jobId);
+    const jobId = event.pathParameters['jobId']
+    const job = await getItem(jobId);
 
     const objectKey = job['Item']['reportFileName']['S']
 
