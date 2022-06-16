@@ -61,15 +61,23 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  UploadCsvToS3:
-    handler: handler.uploadCsvToS3Handler
+  CreateJob:
+    handler: handlers.createJobHandler.createJob
     events:
       - httpApi:
           method: POST
-          path: /uploadCsv
+          path: job/
     environment:
       TABLE_NAME: circle-ci-unit-testing-table
       BUCKET_NAME: circle-ci-unit-testing-bucket
+  GetJob:
+    handler: handlers.getJobHandler.getJob
+    events:
+      - httpApi:
+          method: GET
+          path: job/{jobId}
+    environment:
+      TABLE_NAME: circle-ci-unit-testing-table
 
 # you can add CloudFormation resource templates here
 resources:

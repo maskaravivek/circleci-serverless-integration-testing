@@ -4,7 +4,8 @@
     "coverage": "jest --coverage  --config config/jest-unit.config.js",
     "unit": "jest --config config/jest-unit.config.js",
     "integration": "npm run dotenv && jest --config config/jest-int.config.js",
-    "e2e": "npm run dotenv && jest --config config/jest-e2e.config.js"
+    "e2e": "npm run dotenv && jest --config config/jest-e2e.config.js",
+    "all": "npm run unit && npm run integration && npm run e2e"
   },
   "dependencies": {
     "axios": "^0.27.2",

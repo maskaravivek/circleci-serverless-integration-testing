@@ -4,11 +4,11 @@ const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
 var fs = require('fs');
 const { stringify } = require('csv-stringify/sync');
-const { uploadFile } = require('./s3helper');
-const { putItemInDDB } = require('./ddbHelper');
+const { uploadFile } = require('../services/s3Service');
+const { putItemInDDB } = require('../services/ddbService');
 AWS.config.update({ region: 'us-west-2' });
 
-module.exports.uploadCsvToS3Handler = async (event) => {
+module.exports.createJob = async (event) => {
   try {
     const uploadedObjectKey = await generateDataAndUploadToS3()
     const jobId = JSON.parse(event.body)['jobId']

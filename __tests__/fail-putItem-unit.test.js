@@ -20,7 +20,7 @@ jest.mock("aws-sdk", () => {
   };
 });
 
-const handler = require('../handler');
+const handler = require('../handlers/createJobHandler');
 
 describe('uploadCsvToS3Handler', () => {
   beforeEach(() => {
@@ -28,7 +28,7 @@ describe('uploadCsvToS3Handler', () => {
   });
 
   test('test uploadFile', async () => {
-    expect(handler.uploadCsvToS3Handler({
+    expect(handler.createJob({
       jobId: 'test-job-id',
     })).rejects.toThrow(new Error('Error in backend'))
   });

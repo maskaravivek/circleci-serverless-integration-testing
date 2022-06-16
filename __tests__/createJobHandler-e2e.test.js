@@ -1,12 +1,12 @@
 const { v4: uuidv4 } = require('uuid');
 const axios = require('axios').default;
 
-describe('API test', () => {
+describe('Create job API test', () => {
   beforeEach(() => {
   });
 
-  test('test upload CSV API', async () => {
-    const apiUrl = `https://${process.env.httpApiGatewayEndpointId}.execute-api.${process.env.region}.amazonaws.com/uploadCsv`
+  test('test create job API', async () => {
+    const apiUrl = `https://${process.env.httpApiGatewayEndpointId}.execute-api.${process.env.region}.amazonaws.com/job`
 
     const jobId = uuidv4();
     const resp = await axios.post(apiUrl, {

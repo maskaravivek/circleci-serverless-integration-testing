@@ -1,5 +1,5 @@
-const { uploadFile, head } = require('../s3helper');
-const { putItemInDDB, getItem } = require('../ddbHelper');
+const { uploadFile, head } = require('../services/s3Service');
+const { putItemInDDB, getItem } = require('../services/ddbService');
 var fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 

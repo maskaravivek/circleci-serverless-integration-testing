@@ -18,15 +18,15 @@ jest.mock("aws-sdk", () => {
   };
 });
 
-const handler = require('../handler');
+const handler = require('../handlers/createJobHandler');
 
-describe('uploadCsvToS3Handler', () => {
+describe('createJobHandler', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
   });
 
-  test('test uploadFile', async () => {
-    const response = await handler.uploadCsvToS3Handler({
+  test('createJob', async () => {
+    const response = await handler.createJob({
       body: JSON.stringify({ jobId: 'test-job-id' }),
     });
 
